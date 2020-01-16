@@ -89,6 +89,19 @@
             } 
       });
 
+      var drinkingfountains = L.esri.featureLayer({
+          url: 'https://gisdev.wcc.govt.nz/arcgis/rest/services/Asset/WCC_Assets/MapServer/11',
+          pointToLayer: function (geojson, latlng) {
+            return L.circleMarker(latlng);
+              },
+              style: {
+                color: 'blue',
+                weight: 2,
+                opacity: 0.85,
+                fillOpacity: 0.0
+              }
+      })
+
       var geojsonMarkerOptions = {
           radius: 12,
           color: "#ff7800",
@@ -135,7 +148,8 @@
         "Bike Stands": bikestands,
         "Bikehoops": bikehoops,
         "Bike Maintenance": bikemaintenance,
-        "Cycleways": cycleways
+        "Cycleways": cycleways,
+        "Drinking Fountains" drinkingfountains
       };
 
       L.control.layers(baseLayers, overlayMaps).addTo(map);
